@@ -35,6 +35,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/signup/signupFlow.js'
   ],
   /*
   ** Auto import components

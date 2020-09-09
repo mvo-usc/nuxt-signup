@@ -15,9 +15,9 @@ name: "CurrentCity",
     require: true
   }},
   methods: {
-    ...mapMutations({setCity: 'signup/setCity'}),
+    ...mapMutations({setCityObject: 'signup/setCityObject'}),
     changeCity() {
-      this.setCity('')
+      this.setCityObject({})
     }
   },
 }

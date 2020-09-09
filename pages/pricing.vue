@@ -3,7 +3,7 @@
     <h1>Pricing page </h1>
     <CompanyHelper />
     <CityHelper />
-    <ProductSelector v-if="signupCity"/>
+    <ProductSelector v-if="signupCity" @product-chosen="onProductChosen"/>
   </section>
 </template>
 
@@ -20,6 +20,11 @@ export default {
     ...mapGetters({
       signupCity: 'signup/city',
     })
+  },
+  methods: {
+    onProductChosen() {
+      this.$signupFlow.toNextStep(this.$route.name)
+    }
   }
 }
 </script>

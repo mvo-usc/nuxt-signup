@@ -11,6 +11,7 @@ import CityLandingPage from "~/components/LandingPage/CityLandingPage";
 import landingPageRepository from "~/modules/landingPage/landingPageRepository";
 import {mapGetters} from 'vuex';
 import CompanyLandingPage from "~/components/LandingPage/CompanyLandingPage";
+import cityRepository from "~/modules/city/cityRepository";
 
 export default {
   name: "landingPage",
@@ -39,13 +40,19 @@ export default {
       store.commit('landingPage/setObject', landingPage.object)
 
       if (landingPage.type === 'city' && landingPage.object.slug) {
-        store.commit('signup/setCity', landingPage.object.slug)
+        store.commit('signup/setCityObject', landingPage.object)
       }
 
       if (landingPage.type === 'company' && landingPage.object.slug) {
         store.commit('signup/setCompany', landingPage.object.slug)
-        if (landingPage.object.defaultCity) {
-          store.commit('signup/setCity', landingPage.object.defaultCity)
+
+        if (landingPage.object.defaultCitySlug) {
+          const cityObj = await cityRepository.getBySlug(landingPage.object.defaultCitySlug)
+          store.commit('signup/setCityObject', cityObj)
+        }
+
+        if (landingPage.object.defaultProduct) {
+          store.commit('signup/setProduct', landingPage.object.defaultProduct)
         }
       }
     } else {

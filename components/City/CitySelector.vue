@@ -19,10 +19,12 @@ import {mapMutations} from "vuex";
 export default {
   name: "CitySelector",
   methods: {
-    ...mapMutations({setCity: 'signup/setCity'}),
-    onCitySelect(e) {
-      //console.log('selected', e.target.getAttribute('slug'))
-      this.setCity(e.target.getAttribute('slug'))
+    ...mapMutations({setCityObject: 'signup/setCityObject'}),
+    async onCitySelect(e) {
+      const cityObj = await cityRepository.getBySlug(e.target.getAttribute('slug'))
+      if (cityObj) {
+        this.setCityObject(cityObj)
+      }
     }
   },
   data() {

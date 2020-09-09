@@ -1,14 +1,14 @@
 // database emulation
 export const cities = {
-  amsterdam: {slug: "amsterdam", name: "Amsterdam"},
-  haarlem: {slug: "haarlem", name: "Haarlem"},
-  berlin: {slug: "berlin", name: "Berlin"}
+  amsterdam: {slug: "amsterdam", name: "Amsterdam", country: 'NL'},
+  haarlem: {slug: "haarlem", name: "Haarlem", country: 'NL'},
+  berlin: {slug: "berlin", name: "Berlin", country: 'DE'}
 }
 
 export const companies = {
     google: {name:'Google', slug: 'google'},
-    usc: {name:'UrbanSportsClub', slug: 'usc', defaultCity: 'berlin'},
-
+    usc: {name:'UrbanSportsClub', slug: 'usc', defaultCitySlug: 'berlin'},
+    uscM: {name:'UrbanSportsClub - prefilled M', slug: 'usc', defaultCitySlug: 'berlin', defaultProduct: 'M'},
 }
 
 export const products = {

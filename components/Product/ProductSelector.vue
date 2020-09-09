@@ -42,7 +42,7 @@ export default {
     }),
     onProductSelected(e) {
       this.setProduct(e.target.getAttribute('name'))
-      this.$router.push({name:'signup'})
+      this.$emit('product-chosen')
     }
   }
 }

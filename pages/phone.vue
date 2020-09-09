@@ -34,7 +34,7 @@ export default {
     }),
     onSubmit(e) {
       this.setPhone(this.phone)
-      this.$router.push({name:'phone-validation'})
+      this.$signupFlow.toNextStep(this.$route.name)
     }
   },
   data() {

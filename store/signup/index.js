@@ -1,5 +1,6 @@
 export const state = () => ({
   city: '',
+  country: '',
   company: '',
   product: '',
   email: '',
@@ -10,8 +11,13 @@ export const state = () => ({
 // todo: create action which will persist/load this values from backend
 
 export const mutations = {
-  setCity(state, slug) {
-    state.city=slug
+  setCityObject(state, cityObject) {
+    if (cityObject.slug) {
+      state.city = cityObject.slug
+    }
+    if (cityObject.country) {
+      state.country = cityObject.country
+    }
   },
   setCompany(state, slug) {
     state.company=slug
@@ -33,6 +39,9 @@ export const mutations = {
 export const getters = {
   city(state) {
     return state.city
+  },
+  country(state) {
+    return state.country
   },
   company(state) {
     return state.company

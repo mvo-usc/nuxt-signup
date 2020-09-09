@@ -49,8 +49,7 @@ export default {
       this.email = ''
       this.password = ''
       this.setEmail(email)
-      this.$router.push({name:'phone'})
-
+      this.$signupFlow.toNextStep(this.$route.name)
     }
   },
   data(){

@@ -37,7 +37,7 @@ export default {
     onSubmit(e) {
       const isValid = this.code.trim() !== ''
       this.setPhoneValid(isValid)
-      this.$router.push({name:'success'})
+      this.$signupFlow.toNextStep(this.$route.name)
     }
   },
   data() {
