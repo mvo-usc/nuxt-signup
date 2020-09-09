@@ -36,11 +36,8 @@ export default {
       return this.email.trim() ==='' || this.password.trim() === ''
     }
   },
-  validate({store, redirect}) {
-    if (store.getters['signup/product']) {
-      return true
-    }
-    redirect({name:'pricing'})
+  validate({route, $signupFlow}) {
+    return $signupFlow.validateMissedSignupParts(route.name)
   },
   methods: {
     ...mapMutations({setEmail: 'signup/setEmail'}),

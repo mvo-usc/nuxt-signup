@@ -6,7 +6,10 @@
 
 <script>
 export default {
-  name: "success"
+  name: "success",
+  validate({route, $signupFlow}) {
+    return $signupFlow.validateMissedSignupParts(route.name)
+  },
 }
 </script>
 

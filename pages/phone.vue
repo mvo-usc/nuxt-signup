@@ -20,13 +20,8 @@ import {mapGetters, mapMutations} from "vuex";
 
 export default {
   name: "phone",
-  validate({store, redirect}) {
-    if (!store.getters['signup/product'] || !store.getters['signup/city']) {
-      redirect({name:'pricing'})
-    } else if (!store.getters['signup/email']) {
-      redirect({name:'signup'})
-    }
-    return true
+  validate({route, $signupFlow}) {
+    return $signupFlow.validateMissedSignupParts(route.name)
   },
   methods: {
     ...mapMutations({
