@@ -18,6 +18,10 @@ export const mutations = {
     if (cityObject.country) {
       state.country = cityObject.country
     }
+    if (Object.keys(cityObject).length ===0 ){
+      state.city = ''
+      state.country = ''
+    }
   },
   setCompany(state, slug) {
     state.company=slug

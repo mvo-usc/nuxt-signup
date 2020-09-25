@@ -17,6 +17,7 @@ name: "CurrentCity",
   methods: {
     ...mapMutations({setCityObject: 'signup/setCityObject'}),
     changeCity() {
+      console.log('change city')
       this.setCityObject({})
     }
   },
